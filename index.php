@@ -1,3 +1,8 @@
+<?php
+    require __DIR__ . '/Models/Products.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,25 @@
 
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Prodotti:</h1>
+        </div>
+        <div class="row">
+            <?php foreach($products as $product) : ?>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= $product->image ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $product->name ?></h5>
+                            <p class="card-text"><?= $product->amount ?></p>
+                            <p class="card-text"><?= $product->price ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
     <!-- 
         Import Bootstrap v5.3 script
