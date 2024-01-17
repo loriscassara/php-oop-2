@@ -1,4 +1,8 @@
 <?php
+
+require __DIR__ . '/Kennels.php';
+require __DIR__ . '/Foods.php';
+require __DIR__ . '/Toys.php';
 class Products
 {
     public $type;
