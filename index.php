@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/Models/Products.php';
+require __DIR__ . '/data.php';
 ?>
 
 
@@ -20,7 +20,31 @@ require __DIR__ . '/Models/Products.php';
 </head>
 
 <body>
-
+    <div class="container">
+        <h1 class="text-center fw-bold text-uppercase pt-3 pb-4">Pet Store</h1>
+        <div class="row">
+            <?php foreach ($products as $product) { ?>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="<?= $product->image ?>" alt="...">
+                            <div class="card-title">
+                                <h4><?= $product->name ?></h4>
+                            </div>
+                            <div class="card-subtitle">
+                                <p><?= $product->type ?></p>
+                                <p><?= (isset($product->weight)) ? "Peso: (" . $product->weight . ")" : "/" ?></p>
+                                <p><?= (isset($product->size)) ? "Misura: (" . $product->size . ")" : "/" ?></p>
+                                <p><?= (isset($product->suggestion)) ? "Consiglio: (" . $product->suggestion . ")" : "/" ?></p>
+                                <p><?= (isset($product->brand)) ? "Marchio: (" . $product->brand . ")" : "/" ?></p>
+                                <p class="text-right fw-bold"><?= $product->price ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 
     <!-- 
         Import Bootstrap v5.3 script
